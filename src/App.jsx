@@ -62,13 +62,13 @@ function App() {
     });
   };
 
-  const handleEditClick = (id) => {
+  const EditClick = (id) => {
     setIsEditing(id);
     const commentToEdit = comments.find((comment) => comment.id === id);
     setEditComment(commentToEdit.text);
   };
 
-  const handleUpdateComment = (id) => {
+  const UpdateComment = (id) => {
     setComments((prevComments) =>
       prevComments.map((comment) =>
         comment.id === id ? { ...comment, text: editComment } : comment
@@ -77,7 +77,7 @@ function App() {
     setIsEditing(null);
   };
 
-  const handleReplyClick = (id) => {
+  const ReplyClick = (id) => {
     setVisibleReplies((prevReplies) => ({
       ...prevReplies,
       [id]: !prevReplies[id],
@@ -90,7 +90,7 @@ function App() {
     }
   };
 
-  const handleAddReply = (id, replyText) => {
+  const AddReply = (id, replyText) => {
     setComments((prevComments) =>
       prevComments.map((comment) =>
         comment.id === id
@@ -177,14 +177,14 @@ function App() {
                       Delete
                     </button>
                     <button
-                      onClick={() => handleEditClick(comment.id)}
+                      onClick={() => EditClick(comment.id)}
                       className="text-blue-500 flex items-center cursor-pointer"
                     >
                       <img src={edit} alt="Edit" className="mr-1" />
                       Edit
                     </button>
                     <button
-                      onClick={() => handleReplyClick(comment.id)}
+                      onClick={() => ReplyClick(comment.id)}
                       className="text-blue-500 flex items-center cursor-pointer"
                     >
                       <img src={reply} alt="Reply" className="mr-1" />
@@ -201,7 +201,7 @@ function App() {
                       onChange={(e) => setEditComment(e.target.value)}
                     />
                     <button
-                      onClick={() => handleUpdateComment(comment.id)}
+                      onClick={() => UpdateComment(comment.id)}
                       className="mt-2 w-[104px] py-2 bg-[#5357B6] text-white rounded-lg"
                     >
                       UPDATE
@@ -234,9 +234,7 @@ function App() {
                   value={replyText[comment.id] || ""}
                 />
                 <button
-                  onClick={() =>
-                    handleAddReply(comment.id, replyText[comment.id])
-                  }
+                  onClick={() => AddReply(comment.id, replyText[comment.id])}
                   className="cursor-pointer w-[104px] h-[48px] bg-[#5357B6] text-white rounded-lg hover:bg-[#A4A6D3]"
                 >
                   Reply
