@@ -6,7 +6,6 @@ import minus from "./assets/-.svg";
 import replyimg from "./assets/Reply.svg";
 import Deleteimg from "./assets/delete.svg";
 import edit from "./assets/edit.svg";
-import { formatDistanceToNow } from "date-fns";
 
 function App() {
   const [comments, setComments] = useState([]);
@@ -178,9 +177,7 @@ function App() {
             <div>
               <p className="font-semibold">{reply.userName}</p>
               <p className="text-xs text-gray-500">
-                {formatDistanceToNow(new Date(reply.time), {
-                  addSuffix: true,
-                })}
+                {new Date(reply.time).toLocaleString()}{" "}
               </p>
               <p className="mt-2">{reply.text}</p>
             </div>
@@ -265,9 +262,7 @@ function App() {
                       <div>
                         <p className="font-semibold">{comment.userName}</p>
                         <p className="text-xs text-gray-500">
-                          {formatDistanceToNow(new Date(comment.time), {
-                            addSuffix: true,
-                          })}
+                          {new Date(comment.time).toLocaleString()}{" "}
                         </p>
                       </div>
                     </div>
@@ -378,43 +373,6 @@ function App() {
               </button>
               <button
                 onClick={() => deleteComment(deleteConfirm)}
-                className="px-4 py-2 bg-red-500 text-white rounded-lg cursor-pointer"
-              >
-                Yes, Delete
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {deleteReplyConfirm && (
-        <div
-          onClick={(e) => {
-            e.stopPropagation();
-            setDeleteReplyConfirm(null);
-          }}
-          className="fixed inset-0 flex items-center justify-center bg-gray-300 opacity-95"
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="bg-white p-6 rounded-lg shadow-lg flex flex-col align-baseline"
-          >
-            <h2 className="text-lg font-semibold">Delete reply</h2>
-            <p className="mt-2 text-gray-600">
-              Are you sure you want to delete this reply? This will remove the
-              reply and can’t be undone.
-            </p>
-            <div className="mt-4 flex justify-between space-x-4">
-              <button
-                onClick={() => setDeleteReplyConfirm(null)}
-                className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg cursor-pointer"
-              >
-                No, Cancel
-              </button>
-              <button
-                onClick={() =>
-                  deleteReply(deleteConfirm.commentId, deleteReplyConfirm)
-                }
                 className="px-4 py-2 bg-red-500 text-white rounded-lg cursor-pointer"
               >
                 Yes, Delete
