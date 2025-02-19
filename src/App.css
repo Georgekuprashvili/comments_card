@@ -1,6 +1,11 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
 #root {
   display: flex;
   justify-content: center;
   background-color: #f5f6fa;
+}
+* {
+  font-family: "Rubik", sans-serif;
 }
