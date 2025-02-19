@@ -162,14 +162,14 @@ function App() {
               onClick={() => updateLikes(reply.id, "increase")}
               className="cursor-pointer"
             >
-              <img src={plus} alt="Plus" />
+              <img src={plus} />
             </button>
             <span className="text-[#5357B6]">{reply.likes}</span>
             <button
               onClick={() => updateLikes(reply.id, "decrease")}
               className="cursor-pointer"
             >
-              <img src={minus} alt="Minus" />
+              <img src={minus} />
             </button>
           </div>
           <img src={photo1} alt="User" className="rounded-full w-8 h-8 mr-3" />
@@ -186,14 +186,14 @@ function App() {
                 onClick={() => setDeleteReplyConfirm(reply.id)}
                 className="text-red-500 flex items-center cursor-pointer"
               >
-                <img src={Deleteimg} alt="Delete" className="mr-1" />
+                <img src={Deleteimg} className="mr-1" />
                 Delete
               </button>
               <button
                 onClick={() => EditReplyClick(reply.id)}
                 className="text-blue-500 flex items-center cursor-pointer"
               >
-                <img src={edit} alt="Edit" className="mr-1" />
+                <img src={edit} className="mr-1" />
                 Edit
               </button>
               <button
@@ -213,7 +213,7 @@ function App() {
   return (
     <div className="relative h-screen flex-col flex items-center w-[100%]">
       <div className="w-full max-w-[730px] fixed bottom-0 flex-shrink-0 rounded-lg bg-white flex items-start justify-around p-5 gap-2.5 mb-2.5">
-        <img src={photo1} alt="Profile" />
+        <img src={photo1} />
         <textarea
           className="w-[506px] h-[96px] p-2"
           placeholder="Write a comment..."
@@ -238,7 +238,7 @@ function App() {
                     onClick={() => updateLikes(comment.id, "increase")}
                     className="cursor-pointer"
                   >
-                    <img src={plus} alt="Plus" />
+                    <img src={plus} />
                   </button>
                   <span className="text-[#5357B6] text-center">
                     {comment.likes}
@@ -247,18 +247,14 @@ function App() {
                     onClick={() => updateLikes(comment.id, "decrease")}
                     className="cursor-pointer"
                   >
-                    <img src={minus} alt="Minus" />
+                    <img src={minus} />
                   </button>
                 </div>
 
                 <div className="w-full">
                   <div className="flex justify-between items-center w-full gap-[100px]">
                     <div className="flex items-center">
-                      <img
-                        src={photo1}
-                        alt="User"
-                        className="rounded-full w-8 h-8 mr-3"
-                      />
+                      <img src={photo1} className="rounded-full w-8 h-8 mr-3" />
                       <div>
                         <p className="font-semibold">{comment.userName}</p>
                         <p className="text-xs text-gray-500">
@@ -272,21 +268,21 @@ function App() {
                         onClick={() => setDeleteConfirm(comment.id)}
                         className="text-red-500 flex items-center cursor-pointer"
                       >
-                        <img src={Deleteimg} alt="Delete" className="mr-1" />
+                        <img src={Deleteimg} className="mr-1" />
                         Delete
                       </button>
                       <button
                         onClick={() => EditClick(comment.id)}
                         className="text-blue-500 flex items-center cursor-pointer"
                       >
-                        <img src={edit} alt="Edit" className="mr-1" />
+                        <img src={edit} className="mr-1" />
                         Edit
                       </button>
                       <button
                         onClick={() => ReplyClick(comment.id)}
                         className="text-blue-500 flex items-center cursor-pointer"
                       >
-                        <img src={replyimg} alt="Reply" className="mr-1" />
+                        <img src={replyimg} className="mr-1" />
                         Reply
                       </button>
                     </div>
